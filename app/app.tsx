@@ -16,6 +16,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 // Import root app
