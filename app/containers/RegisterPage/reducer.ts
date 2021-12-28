@@ -29,10 +29,12 @@ function RegisterReducer(
       };
     case ActionTypes.COUNTRY_FETCH_ERROR:
       const { error, loading, ...rest } = state;
+      
       return {
+        ...state,
         error: action.payload,
         loading: false,
-        ...rest,
+        stateList: undefined
       };
     
     case ActionTypes.STATE_FETCH:

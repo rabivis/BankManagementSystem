@@ -15,6 +15,7 @@ import { Container } from 'reactstrap';
 import LoginPage from 'containers/LoginPage/Loadable';
 import RegisterPage from 'containers/RegisterPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import HomePage from 'containers/HomePage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -38,6 +39,7 @@ function App() {
         <Switch>
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
+          <Route path="/" component={HomePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Container>

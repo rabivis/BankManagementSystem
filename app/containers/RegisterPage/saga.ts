@@ -35,6 +35,7 @@ export function* getStateList(action) {
     const stateList = yield call(request, requestURL);
     yield put(updateStateList(stateList));
   } catch (err) {
+    console.log("Here")
     yield put(countryListError(err));
   }
 }

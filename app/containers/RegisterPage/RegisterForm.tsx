@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountryList, fetchStateList } from './actions';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectCountryList, makeSelectLoading, makeSelectError, makeSelectStateList } from './selectors';
+import RegisterFormvalidate from './RegisterFormvalidate';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -208,7 +209,8 @@ export function RegisterForm(props: Props) {
 const form = reduxForm<{}, Props>({
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: false,
-    form: 'loginForm',
+    form: 'registerForm',
+    validate: RegisterFormvalidate
     
 })(RegisterForm);
 

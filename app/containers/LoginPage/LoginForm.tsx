@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, FormGroup, Button } from "reactstrap";
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -20,16 +20,16 @@ interface Props {
     pristine;
     submitting;
     isLoading;
- };
+};
 
- const key = "login";
+const key = "login";
 
 
- const stateSelector = createStructuredSelector({
+const stateSelector = createStructuredSelector({
     currentUser: makeSelectCurrentUser(),
     loading: makeSelectLoading(),
     error: makeSelectError(),
-  });
+});
 
 export function LoginForm(props: Props) {
 
@@ -39,10 +39,14 @@ export function LoginForm(props: Props) {
 
     const history = useHistory();
 
-    if(currentUser != undefined){
-        history.push("/home");
-    }
-    const { handleSubmit,submitting, pristine, isLoading} = props;
+    //useEffect(() => {
+        if (currentUser != undefined) {
+            history.push("/home");
+        }
+    //}, [])
+
+
+    const { handleSubmit, submitting, pristine, isLoading } = props;
 
     const localSubmithandle = (values: LoginFormParams) => {
         dispatch(loginUserSubmit(values))
@@ -50,7 +54,7 @@ export function LoginForm(props: Props) {
 
     useInjectReducer({ key: key, reducer: reducer });
     useInjectSaga({ key: key, saga: saga });
-    
+
     return (
         <Form onSubmit={handleSubmit(localSubmithandle)} noValidate={true}>
             <FormGroup>
@@ -81,16 +85,16 @@ export function LoginForm(props: Props) {
                     style={{ marginRight: '10px' }}
                     disabled={pristine || submitting}
                 >
-                    {isLoading && <>Login...</> }
-                    {!isLoading && <>Login</> }
+                    {isLoading && <>Login...</>}
+                    {!isLoading && <>Login</>}
                 </Button>
-                
+
                 <Button
                     className="float-right"
                     color="success"
                     type="button"
                     style={{ marginRight: '10px' }}
-                    onClick={ () => { history.push("/register")}}
+                    onClick={() => { history.push("/register") }}
                 >
                     Sign Up
                 </Button>
