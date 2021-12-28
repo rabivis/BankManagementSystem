@@ -3,8 +3,8 @@ import React from 'react';
 import { FormGroup, Label } from 'reactstrap';
 
 const ReduxFormSelect: React.FC = (field: any) => (
-  <FormGroup row={true}>
-    <Label>{field.label}</Label>
+  <FormGroup className='input-group'>
+    
     <select {...field.input} disabled={field.disabled} className="form-control">
       <option value="" disabled={true}>
         {field.placeHolder}
@@ -27,6 +27,7 @@ const ReduxFormSelect: React.FC = (field: any) => (
         
       })}
     </select>
+    <Label>{field.label}</Label>
     {field.meta.touched && <p className="text-danger">{field.meta.error}</p>}
   </FormGroup>
 );

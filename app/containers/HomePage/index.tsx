@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Container, Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
+import Helpdesk from 'components/Helpdesk';
 import { useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectCurrentUser } from '../LoginPage/selectors';
@@ -25,7 +25,7 @@ export default function HomePage() {
 
 
     return (
-        <Container>
+        <>
             <Helmet>
                 <title>Home</title>
                 <meta
@@ -33,21 +33,17 @@ export default function HomePage() {
                     content="Home page of Bank Management System"
                 />
             </Helmet>
-            <Row>
-                <Col sm="2" />
-                <Col>
-                    <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Home page
-                            </CardTitle>
-                            Body Here
-                        </CardBody>
-                    </Card>
-
-                </Col>
-                <Col sm="2" />
-            </Row>
-        </Container>
+            <Helpdesk />
+            <div className="row justify-content-center">
+                <div className="text-center" id="test">Dashboard</div>
+            </div>
+            <div className="row justify-content-center">
+                <div className="col-11">
+                    <div className="form-card">
+                        Home Page
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Container, Row, Col, Card, CardBody, CardTitle} from 'reactstrap';
 import RegisterForm from './RegisterForm';
+import Helpdesk from 'components/Helpdesk';
 
 export default function RegisterPage() {
     return (
-        <Container>
+        <>
             <Helmet>
                 <title>Sign Up</title>
                 <meta
@@ -13,21 +13,17 @@ export default function RegisterPage() {
                     content="Registration form for register in Bank Management System"
                 />
             </Helmet>
-            <Row>
-                <Col sm="2" />
-                <Col>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5">
-                            Sing Up
-                        </CardTitle>
+            <Helpdesk />
+            <div className="row justify-content-center">
+                <div className="text-center" id="test">Sign Up</div>
+            </div>
+            <div className="row justify-content-center">
+                <div className="col-11">
+                    <div className="form-card">
                         <RegisterForm />
-                    </CardBody>
-                </Card>
-                    
-                </Col>
-                <Col sm="2" />
-            </Row>
-        </Container>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }

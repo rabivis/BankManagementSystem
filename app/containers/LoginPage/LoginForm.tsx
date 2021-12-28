@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Form, FormGroup, Button } from "reactstrap";
+import { Form, FormGroup, Button, Row, Col } from "reactstrap";
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import LoginFormvalidate from './LoginValidate'
@@ -40,9 +40,9 @@ export function LoginForm(props: Props) {
     const history = useHistory();
 
     //useEffect(() => {
-        if (currentUser != undefined) {
-            history.push("/home");
-        }
+    if (currentUser != undefined) {
+        history.push("/");
+    }
     //}, [])
 
 
@@ -57,49 +57,35 @@ export function LoginForm(props: Props) {
 
     return (
         <Form onSubmit={handleSubmit(localSubmithandle)} noValidate={true}>
-            <FormGroup>
-                <Field
-                    name="userName"
-                    type="text"
-                    component={ReduxFormInput}
-                    label="User Name *"
-                    placeHolder="Enter User Name"
+            <Field
+                name="userName"
+                type="text"
+                component={ReduxFormInput}
+                label="User Name *"
+                placeHolder="Enter User Name"
 
-                ></Field>
-            </FormGroup>
-            <FormGroup>
-                <Field
-                    name="userPass"
-                    type="password"
-                    component={ReduxFormInput}
-                    label="Password *"
-                    placeHolder="Enter Password"
+            />
+            <Field
+                name="userPass"
+                type="password"
+                component={ReduxFormInput}
+                label="Password *"
+                placeHolder="Enter Password"
 
-                ></Field>
-            </FormGroup>
-            <FormGroup>
-                <Button
-                    className="float-right"
-                    color="success"
-                    type="submit"
-                    style={{ marginRight: '10px' }}
-                    disabled={pristine || submitting}
-                >
-                    {isLoading && <>Login...</>}
-                    {!isLoading && <>Login</>}
-                </Button>
-
-                <Button
-                    className="float-right"
-                    color="success"
-                    type="button"
-                    style={{ marginRight: '10px' }}
-                    onClick={() => { history.push("/register") }}
-                >
-                    Sign Up
-                </Button>
-
-            </FormGroup>
+            />
+            <Row>
+                <Col md="12">
+                    <Button
+                        className="btn btn-success placeicon"
+                        color="success"
+                        type="submit"
+                        disabled={pristine || submitting}
+                    >
+                        {isLoading && <>Login...</>}
+                        {!isLoading && <>Login</>}
+                    </Button>
+                </Col>
+            </Row>
         </Form>
     );
 }

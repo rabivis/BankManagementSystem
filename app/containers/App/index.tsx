@@ -16,8 +16,7 @@ import LoginPage from 'containers/LoginPage/Loadable';
 import RegisterPage from 'containers/RegisterPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Sidebar from 'components/Sidebar';
 
 import GlobalStyle from '../../global-styles';
 
@@ -34,16 +33,25 @@ function App() {
       >
         <meta name="description" content="Bank Management System" />
       </Helmet>
-      <Header />
-      <Container>
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/" component={HomePage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Container>
-      {/* <Footer /> */}
+      <div className="container-fluid px-0" id="bg-div">
+        <div className="row justify-content-center">
+          <div className="col-lg-9 col-12">
+            <div className="card card0">
+              <div className="d-flex" id="wrapper">
+                <Sidebar />
+                <div id="page-content-wrapper">
+                  <Switch>
+                    <Route exact path="/" component={HomePage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/register" component={RegisterPage} />
+                    <Route component={NotFoundPage} />
+                  </Switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <GlobalStyle />
     </AppWrapper>
   );

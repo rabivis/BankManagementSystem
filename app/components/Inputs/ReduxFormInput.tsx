@@ -2,8 +2,7 @@ import React from 'react';
 import { FormGroup, Input, Label } from 'reactstrap';
 
 const ReduxFormInput: React.FC = (field: any) => (
-    <FormGroup row={true}>
-        <Label>{field.label}</Label>
+    <FormGroup row={false} className='input-group'>
         <Input
             {...field.input}
             type={field.type}
@@ -13,6 +12,7 @@ const ReduxFormInput: React.FC = (field: any) => (
             step={field.step}
             disabled={field.disabled}
         />
+        <Label>{field.label}</Label>
         {field.meta.touched && <p className="text-danger">{field.meta.error}</p>}
     </FormGroup>
 );
