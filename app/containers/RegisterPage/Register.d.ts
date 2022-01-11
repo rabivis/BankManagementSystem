@@ -5,7 +5,10 @@ export interface CountryList{
 }
 
 export interface Country{
-    countryName: string;
+    id: number;
+    name: string;
+    native: string;
+    iso2: string;
 }
 
 export interface StateList{
@@ -32,4 +35,9 @@ export interface RegisterFormParams {
     initialDepositAmount: number;
     identificationProofType: string;
     identificationDocumentNo: string;
+}
+
+export interface FromSelectArray{
+    label: string;
+    value: string;
 }

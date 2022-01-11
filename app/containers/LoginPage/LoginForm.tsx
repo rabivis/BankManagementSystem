@@ -38,16 +38,11 @@ export function LoginForm(props: Props) {
     const { currentUser, loading, error } = useSelector(stateSelector);
 
     const history = useHistory();
-
-    //useEffect(() => {
     if (currentUser != undefined) {
         history.push("/");
     }
-    //}, [])
-
-
+    
     const { handleSubmit, submitting, pristine, isLoading } = props;
-
     const localSubmithandle = (values: LoginFormParams) => {
         dispatch(loginUserSubmit(values))
     }

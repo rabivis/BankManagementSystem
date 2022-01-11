@@ -1,5 +1,5 @@
 /**
- * Gets the repositories of the user from Github
+ * Gets the list country and state using public API call 
  */
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
@@ -10,15 +10,14 @@ import request from 'utils/request';
 import { constants } from 'crypto';
 
 /**
- * Github repos request/response handler
+ * Backend API call for get country list handler
  */
 export function* getCountryList(action) {
-  // Select username from store
-  const requestURL = `https://61c8deabadee460017260e31.mockapi.io/api/v1/country`;
+  const requestURL = `http://localhost:4000/pub/get_countries`;
   try {
     // Call our request helper (see 'utils/request')
     const countryList = yield call(request, requestURL);
-    yield put(updateCountryList(countryList[0].countries));
+    yield put(updateCountryList({countryList:countryList.data}));
   } catch (err) {
     yield put(countryListError(err));
   }
@@ -28,14 +27,13 @@ export function* getCountryList(action) {
 export function* getStateList(action) {
   // Select username from store
   const { country } = action.payload;
-  const requestURL = `https://61c8deabadee460017260e31.mockapi.io/api/v1/${country}`;
+  const requestURL = `http://localhost:4000/pub/get_states/${country}`;
   
   try {
     // Call our request helper (see 'utils/request')
     const stateList = yield call(request, requestURL);
-    yield put(updateStateList(stateList));
+    yield put(updateStateList({stateList:stateList.data}));
   } catch (err) {
-    console.log("Here")
     yield put(countryListError(err));
   }
 }
