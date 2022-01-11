@@ -43,7 +43,7 @@ export function RegisterForm(props: Props) {
         dispatch(fetchCountryList());
     },[]) 
     const localSubmithandle = (values: any) => {
-
+        console.log({values})
     }
     const handleCountryChange = (event) => {
         

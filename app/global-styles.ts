@@ -66,9 +66,9 @@ body {
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
+  *-webkit-transition: margin .25s ease-out;
+  *-moz-transition: margin .25s ease-out;
+  *-o-transition: margin .25s ease-out;
   transition: margin .25s ease-out
 }
 
@@ -136,21 +136,10 @@ body {
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  font-family: arial;
+  font-family: Arial, Helvetica, sans-serif;
   color: #2C3E50;
   font-size: 14px;
   letter-spacing: 1px
-}
-
-.form-card input:focus,
-.form-card textarea:focus,
-.form-card select:focus {
-  -moz-box-shadow: 0px 0px 0px 1.5px skyblue !important;
-  -webkit-box-shadow: 0px 0px 0px 1.5px skyblue !important;
-  box-shadow: 0px 0px 0px 1.5px skyblue !important;
-  font-weight: bold;
-  border: 1px solid skyblue;
-  outline-width: 0
 }
 
 button.btn-success, input.btn-success {
@@ -179,6 +168,17 @@ button.btn-success, input.btn-success {
   border-radius: 6px !important;
   padding-top: 30px;
   padding-left: 25px
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  -moz-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  -webkit-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  font-weight: bold;
+  border: 1px solid skyblue;
+  outline-width: 0
 }
 
 .input-group label {

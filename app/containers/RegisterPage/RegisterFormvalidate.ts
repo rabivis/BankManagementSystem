@@ -20,6 +20,8 @@ const RegisterFormvalidate = (values: RegisterFormParams): FormErrors<RegisterFo
 
     if (!values.confPassword) {
       errors.confPassword = 'Confirm  Password is required';
+    } else if(values.confPassword !== values.password){
+      errors.password = 'Confirm password does not match'
     }
 
     if (!values.address) {

@@ -3,32 +3,61 @@
 exports[`<App /> should render and match the snapshot 1`] = `
 <styled.div>
   <Helmet
-    defaultTitle="React.js Boilerplate"
+    defaultTitle="Bank Management System"
     defer={true}
     encodeSpecialCharacters={true}
-    titleTemplate="%s - React.js Boilerplate"
+    titleTemplate="%s - Bank Management System"
   >
     <meta
-      content="A React.js Boilerplate application"
+      content="Bank Management System"
       name="description"
     />
   </Helmet>
-  <Header />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-      path="/features"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
-  <Footer />
+  <div
+    className="container-fluid px-0"
+    id="bg-div"
+  >
+    <div
+      className="row justify-content-center"
+    >
+      <div
+        className="col-lg-9 col-12"
+      >
+        <div
+          className="card card0"
+        >
+          <div
+            className="d-flex"
+            id="wrapper"
+          >
+            <Sidebar />
+            <div
+              id="page-content-wrapper"
+            >
+              <Switch>
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/"
+                />
+                <Route
+                  component={[Function]}
+                  path="/login"
+                />
+                <Route
+                  component={[Function]}
+                  path="/register"
+                />
+                <Route
+                  component={[Function]}
+                />
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <GlobalStyleComponent />
 </styled.div>
 `;
