@@ -34,9 +34,7 @@ const stateSelector = createStructuredSelector({
 export function LoginForm(props: Props) {
 
     const dispatch = useDispatch();
-
     const { currentUser, loading, error } = useSelector(stateSelector);
-
     const history = useHistory();
     if (currentUser != undefined) {
         history.push("/");

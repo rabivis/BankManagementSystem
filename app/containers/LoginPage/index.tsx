@@ -2,9 +2,17 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import LoginForm from './LoginForm';
 import Helpdesk from 'components/Helpdesk';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectError } from './selectors';
+import { useSelector } from 'react-redux';
 
+const stateSelector = createStructuredSelector({
+    error: makeSelectError(),
+});
 
 export default function LoginPage() {
+
+    const { error } = useSelector(stateSelector);
     return (
         <>
             <Helmet>
@@ -14,7 +22,10 @@ export default function LoginPage() {
                     content="Login form for login in Bank Management System"
                 />
             </Helmet>
-            <Helpdesk />
+            <Helpdesk 
+                message={(error)?'Invalid user name & password':false}
+                messageType={ (error)? 'danger': ''}
+            />
             <div className="row justify-content-center">
                 <div className="text-center" id="test">Sign In</div>
             </div>
