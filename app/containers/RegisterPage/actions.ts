@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions';
-import { CountryList, StateList, Country } from './Register.d';
+import { CountryList, StateList, Country, RegisterFormParams, SuccessMsgRegister } from './Register.d';
 
 import ActionTypes from './constants';
 
@@ -17,3 +17,12 @@ export const fetchStateList = (country: Country) =>
 
 export const updateStateList = (stateList: StateList) =>
     action(ActionTypes.STATE_FETCH_SUCCESS, { stateList });
+
+export const submitUserRegister = (formData: RegisterFormParams) =>
+    action(ActionTypes.REGISTER_USER, { formData });
+
+export const userRegisterSuccess = (successMsg: SuccessMsgRegister) =>
+    action(ActionTypes.REGISTER_USER_SUCCESS, { successMsg });
+
+export const userRegisterError = (error: any) =>
+    action(ActionTypes.REGISTER_USER_ERROR, { error });

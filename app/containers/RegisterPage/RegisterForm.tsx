@@ -7,7 +7,7 @@ import ReduxFormSelect from 'components/Inputs/ReduxFormSelect';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { AccountTypes } from './constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCountryList, fetchStateList } from './actions';
+import { fetchCountryList, fetchStateList, submitUserRegister } from './actions';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectCountryList, makeSelectLoading, makeSelectError, makeSelectStateList } from './selectors';
 import RegisterFormvalidate from './RegisterFormvalidate';
@@ -43,7 +43,7 @@ export function RegisterForm(props: Props) {
         dispatch(fetchCountryList());
     }, [])
     const localSubmithandle = (values: any) => {
-        console.log({ values })
+        dispatch(submitUserRegister(values));
     }
     const handleCountryChange = (event) => {
 
@@ -129,7 +129,7 @@ export function RegisterForm(props: Props) {
                 placeHolder="Enter User Email Address"
             />
             <Field
-                name="contactNumber"
+                name="contactNo"
                 type="text"
                 component={ReduxFormInput}
                 label="Contact No *"

@@ -12,8 +12,6 @@ import request from 'utils/request';
  * Github repos request/response handler
  */
 export function* loginUser(action) {
-  console.log({ action })
-  // Select username from store
   const { userName, userPass } = action.payload.formData;
   const requestURL = `http://localhost:4000/pub/login`;
   try {

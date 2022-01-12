@@ -28,7 +28,7 @@ export interface RegisterFormParams {
     country: Country;
     state: State;
     email: string;
-    contactNumber: string;
+    contactNo: string;
     dateOfBirth: string;
     accountType: string;
     branchName: string;
@@ -40,4 +40,8 @@ export interface RegisterFormParams {
 export interface FromSelectArray{
     label: string;
     value: string;
+}
+
+export interface SuccessMsgRegister{
+    successMsg: String;
 }

@@ -42,11 +42,11 @@ const RegisterFormvalidate = (values: RegisterFormParams): FormErrors<RegisterFo
       errors.email = 'Invalid email address'
     }
 
-    if (!values.contactNumber) {
+    if (!values.contactNo) {
       errors.contactNumber = 'Contact Number is required';
-    } else if (isNaN(Number(values.contactNumber))) {
+    } else if (isNaN(Number(values.contactNo))) {
       errors.contactNumber = 'Must be a number';
-    } else if (values.contactNumber.length !== 10) {
+    } else if (values.contactNo.length !== 10) {
       errors.contactNumber = 'Must be 10 characters';
     }
 

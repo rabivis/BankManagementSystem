@@ -29,14 +29,14 @@ function RegisterReducer(
       };
     case ActionTypes.COUNTRY_FETCH_ERROR:
       const { error, loading, ...rest } = state;
-      
+
       return {
         ...state,
         error: action.payload,
         loading: false,
         stateList: undefined
       };
-    
+
     case ActionTypes.STATE_FETCH:
       return {
         ...state,
@@ -45,13 +45,34 @@ function RegisterReducer(
         error: false,
       };
     case ActionTypes.STATE_FETCH_SUCCESS:
-      
+
       return {
         ...state,
         stateList: action.payload.stateList,
         loading: false,
         error: state.error,
-        
+
+      };
+    case ActionTypes.REGISTER_USER:
+      return {
+        ...state,
+        formData: action.payload.formData,
+        loading: true,
+        error: false,
+      };
+    case ActionTypes.REGISTER_USER_SUCCESS:
+      return {
+        ...state,
+        successMsg: action.payload.successMsg,
+        loading: false,
+        error: state.error,
+      };
+    case ActionTypes.REGISTER_USER_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        stateList: undefined
       };
     default:
       return state;

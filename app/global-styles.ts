@@ -213,6 +213,9 @@ input:focus+label {
   top: 12px;
   right:12px;
 }
+#page-content-wrapper .alert {
+  margin-bottom: 0;
+}
 `;
 
 export default GlobalStyle;

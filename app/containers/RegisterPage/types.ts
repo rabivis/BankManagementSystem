@@ -1,6 +1,6 @@
 import { ActionType } from 'typesafe-actions';
 import * as actions from './actions';
-import { CountryList, StateList, Country } from './Register.d';
+import { CountryList, StateList, Country, RegisterFormParams, SuccessMsgRegister } from './Register.d';
 
 /* --- STATE --- */
 
@@ -10,6 +10,8 @@ interface RegisterState {
     readonly countryList?: CountryList;
     readonly stateList?:  StateList;
     readonly country?: Country;
+    readonly formData?: RegisterFormParams;
+    readonly successMsg?: SuccessMsgRegister;
 }
 
 /* --- ACTIONS --- */
